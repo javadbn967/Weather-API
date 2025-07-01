@@ -4,9 +4,9 @@ async function getWeather() {
         document.getElementById('weatherResult').innerHTML = '<p class="error">Please write the name of the city!</p>';
         return;
     }
-    const apiKey = '6b789cd52af1f529fb41187c40780ce1'; 
+    const apiKey = '40ab3db72d730280d6d538901539f06c'; 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=en`;
-
+    
     try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -17,7 +17,7 @@ async function getWeather() {
         const weather = `
             <h2>${data.name}</h2>
             <p>Temperature: ${data.main.temp}°C</p>
-            <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}.png" alt="weather icon">
+            <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}.png" alt="weather icon">
             <p>Status: ${data.weather[0].description}</p>
             <p>Humidity: ${data.main.humidity}%</p>
         `;
